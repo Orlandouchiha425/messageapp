@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { set } from "../../../config/database";
 
 
 export default function LoginForm(){
@@ -42,3 +41,6 @@ export default function LoginForm(){
 
 }
 
+//this page is identical to signup form, only difference is we dont need name and create password
+//we just get this and save it for now, we will use this information from sign up and auth 
+//in AuthPage
