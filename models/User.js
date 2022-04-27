@@ -12,6 +12,7 @@ const userSchema= new Schema({
     //will be unique , required
     //timestamps time it was created
     name:{type: String, required: true},
+    // picture:{img:String},
     email: {
         type:String,
         unique:true,
