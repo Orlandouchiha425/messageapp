@@ -18,3 +18,6 @@ router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 //located in config/ensurelogged in / lastly we will check the token , to be specific we call only one function. 
 //that function is checktoken within the variable usersCtrl inside of controllers/api/users
 // GET /api/users/check-token
+
+
+module.exports=router;

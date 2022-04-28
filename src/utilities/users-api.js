@@ -1,12 +1,12 @@
 import { getToken } from "./users-service";
 //this only imports getToken function from Users-service
 
-const Base_URL= "/api/users";
+const BASE_URL= "/api/users";
 //previously, if we wanted to deploy to heroku and netlify we needed to go back 
 //and change every url with heroku and nelify link, with this we can just come here and update BASE_URL
 
 export async function signUp(userData){
-    return sendRequest(`${Base_URL}`, 'POST',userData)
+    return sendRequest(`${BASE_URL}`, 'POST',userData)
 //created a function with address api/users make it into a post and gives *userData* whatever we put in the parameter
 //all this is inside sendRequest, which is the last function in this file
 
@@ -26,8 +26,8 @@ export async function login(credentials){
 }
 
 
-async function sendRequest(url,method='GET',payload=nul){
-    
+async function sendRequest(url,method='GET',payload=null){
+
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set headers, etc.
     const options={ method };

@@ -1,6 +1,6 @@
 const User=require('../../models/User')//we are importing everything from models/User.js--Schema etc
 const jwt =require('jsonwebtoken');//this is the token so it can store login in localstorage
-const bcrypt = require('bcryptjs/dist/bcrypt');
+const bcrypt = require('bcrypt');
 
 
 

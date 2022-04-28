@@ -1,5 +1,6 @@
 import { useState } from "react"
-export default function SignUpForm(){
+import { signUp } from "../../utilities/users-service"
+export default function SignUpForm({setUser}){
     const [state, setState]=useState({
         name:'',
         email:'',
@@ -31,7 +32,8 @@ const handleChange = (evt) => {
         delete formData.error;
         delete formData.confirm;
 
-        alert(JSON.stringify(formData))
+       const user=await signUp(formData)
+       setUser(user)
         // const user=await SignUp(formData)
     }
     catch(error){
