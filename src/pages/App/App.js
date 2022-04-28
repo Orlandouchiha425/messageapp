@@ -1,10 +1,23 @@
 import './App.css';
-import SignUpForm from '../../component/SignUpForm/SignUpForm';
+import AuthPage from '../AuthPage/AuthPage';
+import { useState } from 'react';
+import {Routes, Route} from 'react-router-dom'
 function App() {
+  cosnt [user,setUser]=useState(null)
+
+
   return (
-    <div className="App">
-      <SignUpForm />
-    </div>
+    <main className="App">
+      {
+        user ?
+     <Routes>
+        <Route path='/home'element={<AuthPage />}/>
+        
+      </Routes>
+        :
+        <AuthPage setUser={setUser} />
+      }
+    </main>
   );
 }
 
