@@ -17,8 +17,8 @@ export default function LoginForm({setUser}){
     const handleSubmit=async(evt)=>{
         evt.preventDefault()
         try{
-            const user=await userService.login(credentials)
-            setUser(user)
+            const loggedInUser=await userService.login(credentials)
+            setUser(loggedInUser)
         }catch(error){
             setError(error.message)
         }

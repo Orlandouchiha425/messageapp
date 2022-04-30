@@ -3,11 +3,15 @@ const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
+const app = express();
+
+
+
 
 require('dotenv').config();
 require('./config/database');
 
-const app = express();
+
 
 app.use(logger('dev'));
 // there's no need to mount express.urlencoded middleware
@@ -30,6 +34,12 @@ app.use('/api/users', require('./routes/api/users'));
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+
+
+
+
+
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server

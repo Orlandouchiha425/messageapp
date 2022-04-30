@@ -3,8 +3,9 @@ import AuthPage from '../AuthPage/AuthPage';
 import { useState } from 'react';
 import HomePage from './HomePage';
 import {Routes, Route} from 'react-router-dom'
+import MessageBoard from '../../component/MessageBoard/MessageBoard';
 function App() {
-  const [user,setUser]=useState(null)
+  const [user,setUser] = useState(null)
 
 
   return (
@@ -12,12 +13,14 @@ function App() {
        {
         user ?
      <Routes>
-        <Route path='/home' element={<HomePage setUser={setUser}/>}/>
+        <Route path='/' element={<MessageBoard />}/>
         
       </Routes>
         :
-        <AuthPage element={<AuthPage setUser={setUser}/>} />
+        <AuthPage setUser={setUser}/>
       }
+
+
       </main>
 
   );

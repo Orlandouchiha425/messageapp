@@ -31,11 +31,12 @@ const handleChange = (evt) => {
         delete formData.error;
         delete formData.confirm;
 
-       const user=await signUp(formData)
-       setUser(user)
+       const newUser=await signUp(formData)
+       setUser(newUser)
         // const user=await SignUp(formData)
     }
-    catch{
+      catch(err){
+        console.log(err)
         setState({error: 'Sign Up Failed'})
                  }
     }

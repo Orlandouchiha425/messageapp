@@ -3,28 +3,17 @@ import { useState } from "react"
 import Carousel from "./Image"
 import LoginForm from "../../component/LoginForm/LoginForm"
 
-export default function AuthPage({setUser}){
-   
-  
-      
+
+export default function AuthPage({ setUser }) {
     const [showLogin, setShowLogin] = useState(true);
-    return(
-
-        
-
-        <main>
-       
-       <Carousel />
-         
-            <button onClick={()=> setShowLogin(!setShowLogin)}>{showLogin ? 'SIGN UP': 'LOG IN'}</button>
-            {
-                showLogin ?
-                <LoginForm setUser={setUser}/> :
-
-                <SignUpForm  setUser={setUser}/>
-
-            }
-            
-        </main>
-    )
-}
+  
+    return (
+      <main>
+        <div>
+          <Carousel />
+          <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</button>
+        </div>
+        {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
+      </main>
+    );
+  }
