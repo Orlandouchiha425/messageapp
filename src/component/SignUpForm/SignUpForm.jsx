@@ -28,7 +28,6 @@ const handleChange = (evt) => {
 
     try{
         const formData={...state} //assign variable fomdata to everything in state from line 4-8 empty ofcourse,havent done anything yet
-        formData={...state};
         delete formData.error;
         delete formData.confirm;
 
@@ -36,7 +35,7 @@ const handleChange = (evt) => {
        setUser(user)
         // const user=await SignUp(formData)
     }
-    catch(error){
+    catch{
         setState({error: 'Sign Up Failed'})
                  }
     }
@@ -57,7 +56,7 @@ const handleChange = (evt) => {
             <input type="password" name="password" value={state.password} onChange={handleChange} required />
             <label>Confirm</label>
             <input type="password" name="confirm" value={state.confirm} onChange={handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
+            <button type="submit" disabled={disable}>SIGN UP test</button>
           </form>
         </div>
         <h1 className="error-message">&nbsp;{state.error}</h1>
