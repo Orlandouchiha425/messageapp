@@ -1,3 +1,4 @@
+import styles from "./SignUpForm.module.css"
 import { useState } from "react"
 import { signUp } from "../../utilities/users-service"
 export default function SignUpForm({setUser}){
@@ -47,7 +48,7 @@ const handleChange = (evt) => {
     const disable = state.password !== state.confirm;
     return (
       <div>
-        <div className="form-container">
+        <div className={styles.SignUpForm}>
           <form autoComplete="off" onSubmit={handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={state.name} onChange={handleChange} required />

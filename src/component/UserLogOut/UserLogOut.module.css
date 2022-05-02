@@ -1,0 +1,14 @@
+/* body{
+  margin: 20px;
+} */
+
+
+.UserLogOut {
+    font-size: 1.5vmin;
+    color: var(--text-light);
+    text-align:left;
+    }
+    
+    .UserLogOut .email {
+      font-size: smaller;
+    }

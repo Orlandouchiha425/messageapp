@@ -1,19 +1,22 @@
-import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import { useState } from 'react';
 import HomePage from './HomePage';
 import {Routes, Route} from 'react-router-dom'
 import MessageBoard from '../../component/MessageBoard/MessageBoard';
+import { getUser } from '../../utilities/users-service';
+import styles from './App.module.css';
+
+
 function App() {
-  const [user,setUser] = useState(null)
+  const [user,setUser] = useState(getUser())
 
 
   return (
-    <main className="App">
+    <main className={styles.App}>
        {
         user ?
      <Routes>
-        <Route path='/' element={<MessageBoard />}/>
+        <Route path='/' element={<HomePage  user={ user } setUser={setUser}/>}/>
         
       </Routes>
         :

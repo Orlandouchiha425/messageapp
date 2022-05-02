@@ -50,7 +50,7 @@ export function getToken(){
 
 //Logout
 
-export function logout(){
+export function logOut(){
     localStorage.removeItem('token')
 //self explanatory, when we call this function is removes the token aka logs user out
 }
