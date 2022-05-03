@@ -1,23 +1,32 @@
 import { useRef } from "react";
 
-export default function Script(){
-    const NameInput=useRef(null) 
-   const IDInput=useRef(null)
-   const ComposedMessage=useRef(null)
-   const RoomID=useRef(null)
-   const notification=useRef(null)
-    const Message=useRef(null)
+
+
+const NameInput=useRef(null) 
+const IDInput=useRef(null)
+const ComposedMessage=useRef(null)
+const RoomID=useRef(null)
+const Ding=useRef(null)
+ const Message=useRef(null)
+
+
+ 
+
 
     var socket;
     var usernameInput
     var chatIDInput;
+    var messageInput;
     var chatRoom;
-    var dingSound
+    var dingSound;
+    var messages = [];
+    var delay = true;
+
+
  function onload(){
 
     socket=io();
-    usernameInput=NameInput.current.value
-        }
+
 
 
 
@@ -28,15 +37,16 @@ export default function Script(){
         console.log(message)
         if(messages.length<9){
             messages.push(message);
-            notification.currentTime=0;
-            notification.play();
+            dingSound.currentTime=0;
+            dingSound.play();
         }
         else{
             messages.shift();
             messages.push(message)
         }
         for (i=0;i<messages.length;i++){
-            ({Message}+i).dangerouslySetInnerHTML=messages[i]
+            ({Message}+i).dangerouslySetInnerHTML=messages[i];
+            {message}
            
         }
     })
@@ -44,3 +54,27 @@ export default function Script(){
 }
 
 
+function Connect(){
+    socket.emit("join", chatIDInput.value, usernameInput.value)
+}
+
+
+    function send(){
+    if(delay && messageInput.value.replace(/\s/g,"") !=""){
+        delay=false;
+        setTimeout(delayReset,1000);
+        socket.emit("send", messageInput.value);
+        messageInput.value="";
+    }
+}
+
+function delayReset(){
+    delay = true;
+  }
+
+  module.exports={
+delayReset,
+send,
+Connect,
+onload
+  }
