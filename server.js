@@ -4,8 +4,8 @@ const path = require('path');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
+
+
 
 
 
@@ -37,8 +37,9 @@ app.get('/*', function(req, res) {
 
 
 
-
-
+// io.on("connection", (socket) => {
+//   console.log(socket.id); // ojIckSD2jqNzOqIrAGzL
+// });
 
 
 
@@ -46,6 +47,6 @@ app.get('/*', function(req, res) {
 // development to avoid collision with React's dev server
 const port = process.env.PORT || 3001;
 
-server.listen(port, function() {
+app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });

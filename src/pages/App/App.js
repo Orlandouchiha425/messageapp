@@ -7,6 +7,13 @@ import { getUser } from '../../utilities/users-service';
 import styles from './App.module.css';
 
 
+// import {io} from "socket.io-client"
+// const socket =io('http://localhost:3001')
+
+// socket.on("connect", () => {
+//     console.log(socket.id); // ojIckSD2jqNzOqIrAGzL
+//   });
+
 function App() {
   const [user,setUser] = useState(getUser())
 
