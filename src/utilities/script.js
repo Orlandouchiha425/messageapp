@@ -1,69 +1,35 @@
-//  import { useRef } from "react";
-// const NameInput=useRef(null) 
-// const IDInput=useRef(null)
-// const ComposedMessage=useRef(null)
-// const RoomID=useRef(null)
-// const Ding=useRef(null)
-//  const Message=useRef(null)
-// // const socket=require('socket.io')
+import {useState,useEffect } from 'react'
+import socket from ('socket.io')
 
-//     var socket;
-//     var usernameInput
-//     var chatIDInput;
-//     var messageInput;
-//     var chatRoom;
-//     // var dingSound;
-//     var messages = [];
-//     var delay = true;
-// export default function Scripts(){
+let socket;
+let usernameInput
+let chatIDInput;
+let messageInput;
+let chatRoom;
+let messages = [];
 
-//  function onload(){
+function onload(){
+    const [chatRoom,setChatroom]=useState("")
+socket.on("join",function(room){
+    setChatroom(...chatRoom,chatRoom)= `ChatRoom: ${room}`
 
-//     socket=io();
+})
+}
 
+useEffect(()=>{
+onload()
 
+},[])
 
 
-//     socket.on("join",function(room){
-//         chatRoom.dangerouslySetInnerHTML=`Chatroom : ${room}`
-//     }) 
-//     socket.on("receive", function(message){
-//         console.log(message)
-//         if(messages.length<9){
-//             messages.push(message);
-//             // dingSound.currentTime=0;
-//             // dingSound.play();
-//         }
-//         else{
-//             messages.shift();
-//             messages.push(message)
-//         }
-//         for (i=0;i<messages.length;i++){
-//             ({Message}+i).dangerouslySetInnerHTML=messages[i];
-//             {message}
-           
-//         }
-//     })
+socket.on("receive",function(message){
+const [messages,setMessages]=useState([])
+    console.log(message);
+    if (messages.length<9){
+        setMessages(...message);
 
-// }
-
-
-// function Connect(){
-//     socket.emit("join", chatIDInput.value, usernameInput.value)
-// }
-
-
-//     function send(){
-//     if(delay && messageInput.value.replace(/\s/g,"") !=""){
-//         delay=false;
-//         setTimeout(delayReset,1000);
-//         socket.emit("send", messageInput.value);
-//         messageInput.value="";
-//     }
-// }
-
-// function delayReset(){
-//     delay = true;
-//   }
-
-// }
+    }
+    else{
+        
+    }
+})

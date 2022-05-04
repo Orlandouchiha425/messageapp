@@ -21,18 +21,31 @@ function App() {
   return (
     <main className={styles.App}>
       
-       {
-        user ?
+       
+         
      <Routes>
-        <Route path='/' element={<HomePage  user={ user } setUser={setUser}/>}/>
-        
+       {
+         user ?
+         <>
+            <Route path='/' element={<MessageBoard  user={ user } setUser={setUser}/>}/>  
+         </>
+         :
+         <>
+          <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
+          <Route path='/' element={<HomePage />}/>
+
+         </>
+
+       }
+       
+       
       </Routes>
-        :
+        
 
-        <HomePage />
-        // <AuthPage setUser={setUser}/>
-      }
-
+     
+    
+        
+      
 
       </main>
 
