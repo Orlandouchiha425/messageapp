@@ -1,20 +1,21 @@
 import UserLogOut from '../../component/UserLogOut/UserLogOut';
-import ListOfUsers from '../../component/ListOfUsers/ListOfUsers';
-import { useState,useEffect } from 'react';
 import MessageBoard from '../../component/MessageBoard/MessageBoard';
-export default function HomePage({user,setUser}){
-    const [activeUsers,setActiveUsers]=useState('');
-
-
+import image1 from ".././AuthPage/images/chatter.png"
+import NavBar from '../../component/NavBar/NavBar';
+import Logo from '../../component/Logo/Logo';
+export default function HomePage(){
 
 
 
     return(
         <main>
-                <MessageBoard />
-<UserLogOut user={user} setUser={setUser} />
-
-<h1>This is the HomePage</h1>
+<NavBar />
+            <div>
+            <Logo />
+        <img className="parent" src={image1} width="100%" />
+      
+        </div>
+        
         </main>
      
     

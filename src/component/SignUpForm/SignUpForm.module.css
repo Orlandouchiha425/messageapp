@@ -1,7 +1,5 @@
         
-body{
-    background-color: rgb(233, 233, 233);
-}
+
   
   .SignUpForm {
     padding: 3vmin;
@@ -18,7 +16,7 @@ body{
     gap: 1.25vmin;
   }
   
-  img {
+  /* img {
     
    display: flex;
     margin-left: 30%;
@@ -28,5 +26,5 @@ body{
     border-radius: 20px;
     
   }
-  
+   */
   

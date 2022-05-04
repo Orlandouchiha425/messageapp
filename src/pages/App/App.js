@@ -20,6 +20,7 @@ function App() {
 
   return (
     <main className={styles.App}>
+      
        {
         user ?
      <Routes>
@@ -27,7 +28,9 @@ function App() {
         
       </Routes>
         :
-        <AuthPage setUser={setUser}/>
+
+        <HomePage />
+        // <AuthPage setUser={setUser}/>
       }
 
 

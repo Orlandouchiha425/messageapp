@@ -24,7 +24,7 @@ body{
     margin: 1vmin;
     padding: 1vmin;
     color: var(--white);
-    background-color:white;
+    background-color:rgb(255, 255, 255);
     color: black;
     font-size: 2vmin;
     font-weight: bold;
