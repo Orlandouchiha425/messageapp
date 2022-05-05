@@ -4,7 +4,6 @@ import { io } from "socket.io-client"
 const socket = io("https://localhost:3005");
 
 
-// import styles from "./MessageBoard.module.css"
 
 
 
@@ -15,14 +14,18 @@ export default function MessageBoard(){
       })
 
   const [messages, setMessages] = useState([])
-  const [text,setText]=useState("")
+  const [text, setText]=useState("")
+  const [chatId, setChatId]=useState({Room1:" "})
+  const [userNameInput, setUserNameInput]=useState({UserName:" "})
+  const [messageInput,setMessageInput]=useState("")
 
-
+    let delay=true;
   useEffect(() => {
     socket.io()
 
     socket.on("join",function(room){
     setChatroom({...chatRoom,["ChatRoom"]:room})
+
 
     socket.on("receive",function(message){
       console.log(message);
@@ -33,8 +36,9 @@ export default function MessageBoard(){
       setMessages(...messages,message)
     }
     for (i=0;i<messages.length;i++){
-      setText()
+      setText(...text,[i])
     }
+
 
     })
 
@@ -42,7 +46,25 @@ export default function MessageBoard(){
   },[])
 
 
+  function Connect(value){
+    socket.emit("join", setChatId({...chatId,["chatId"]:value}), setUserNameInput({...userNameInput,["UserName"]:value})
+    )
+  }
 
+
+
+function Send(){
+  if (delay && setMessageInput(...messageInput,messageInput.value.replace(/\s/g,"") !="")){
+    delay = false;
+    setTimeout(delayReset, 1000);
+    socket.emit("send", messageInput.value);
+    messageInput.value = "";
+  }
+}
+
+function delayReset(){
+  delay = true;
+}
   
 
 
