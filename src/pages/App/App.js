@@ -27,8 +27,8 @@ function App() {
        {
          user ?
          <>
-         {/* <Route path='/' element={<Test />}/> */}
-            <Route path='/' element={<MessageBoard  user={ user } setUser={setUser}/>}/>  
+         <Route path='/' element={<Test />}/>
+            {/* <Route path='/' element={<MessageBoard  user={ user } setUser={setUser}/>}/>   */}
          </>
          :
          <>
