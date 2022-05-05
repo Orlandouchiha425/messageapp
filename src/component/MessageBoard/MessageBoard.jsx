@@ -32,12 +32,17 @@ export default function MessageBoard(){
     if(messages.length<9){
       setMessages(...message,message)
     }else{
-      setMessages(delete(message));
+      setMessages(messages-1);
       setMessages(...messages,message)
     }
-    for (i=0;i<messages.length;i++){
-      setText(...text,[i])
-    }
+    
+    const messageList=message.map(element=>{
+      <div>
+        <h1>{element.setMessages}</h1>
+      </div>
+    })
+
+
 
 
     })
@@ -54,7 +59,7 @@ export default function MessageBoard(){
 
 
 function Send(){
-  if (delay && setMessageInput(...messageInput,messageInput.value.replace(/\s/g,"") !="")){
+  if (delay && setMessageInput(...messageInput,messageInput.value.replace(/\s/g,"") !=="")){
     delay = false;
     setTimeout(delayReset, 1000);
     socket.emit("send", messageInput.value);
@@ -73,19 +78,28 @@ function delayReset(){
     return (
 
 
-      <form>
+   
       <div className="form-row ">
-        <label > Username  </label>
+       
+
+        <h1 id = "Title"> Chat </h1>
+      <div >
+      <label > Username  </label>
         <input placeholder="type your username..." className="form-control " type = "text"/>
         <label > Chatroom </label>
         <input placeholder="select a room..." className = "form-control "  type = "text"/>
         
         <input className="btn btn-primary" type = "submit" value = "Connect" onclick = "Connect()"/>
-        {messages.length && messageList}
- 
-       
       </div>
-      </form>
+ 
+      <h2 id = "RoomID"> Chatroom : None </h2>
+      <label id = "MessageLabel"> Message </label>
+        <input id = "ComposedMessage" type = "text"></input>
+        <input id = "SendMessage" onclick="Send()" value = "Send" class = "Button" type = "submit"/>
+      </div>
+  
+
+      
     );
   };
 

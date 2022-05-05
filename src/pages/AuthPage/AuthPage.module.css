@@ -2,8 +2,15 @@
    height: 70px;
    width: 70px;
    border-radius: 50px;
-
+  box-shadow: 10px 5px 5px rgb(46, 52, 62);
   justify-content: center;
   align-items: center;
+
    
 }
+
+
+.backgroundcolor{
+  background-color:#585DD1;
+}
+  

@@ -7,7 +7,8 @@
     border: .1vmin solid var(--tan-3);
     border-radius: 1vmin;
     height: 400px;
-    background-color:silver;
+   
+    
   
   }
   form {
@@ -15,16 +16,7 @@
     grid-template-columns: 1fr 3fr;
     gap: 1.25vmin;
   }
+
+
   
-  /* img {
-    
-   display: flex;
-    margin-left: 30%;
-    margin-top: 10px;
-    height:300px;
-   max-width: 600px;
-    border-radius: 20px;
-    
-  }
-   */
-  
+ 

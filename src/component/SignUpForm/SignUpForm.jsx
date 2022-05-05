@@ -47,9 +47,9 @@ const handleChange = (evt) => {
     
     const disable = state.password !== state.confirm;
     return (
-      <div>
-        <div className={styles.SignUpForm}>
-          <form autoComplete="off" onSubmit={handleSubmit}>
+      <div className=" bg-light">
+        <div className={styles.SignUpForm } >
+          <form autoComplete="off" onSubmit={handleSubmit} >
             <label>Name</label>
             <input type="text" name="name" value={state.name} onChange={handleChange} required />
             <label>Email</label>
@@ -58,7 +58,7 @@ const handleChange = (evt) => {
             <input type="password" name="password" value={state.password} onChange={handleChange} required />
             <label>Confirm</label>
             <input type="password" name="confirm" value={state.confirm} onChange={handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP test</button>
+            <button type="submit" className="position-sticky shadow-lg p-3 mb-5 bg-primary rounded  " disabled={disable}>SIGN UP </button>
           </form>
         </div>
         <h1 className="error-message">&nbsp;{state.error}</h1>
