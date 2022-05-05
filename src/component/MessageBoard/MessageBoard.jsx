@@ -35,12 +35,14 @@ export default function MessageBoard(){
       setMessages(messages-1);
       setMessages(...messages,message)
     }
-    
-    const messageList=message.map(element=>{
-      <div>
-        <h1>{element.setMessages}</h1>
-      </div>
-    })
+    for (i=0;i<messages.length;i++){
+      setText(...text,[i])
+    }
+    // const messageList=message.map(element=>{
+    //   <div>
+    //     <h1>{element.setMessages}</h1>
+    //   </div>
+    // })
 
 
 
