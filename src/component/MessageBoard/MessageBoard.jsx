@@ -1,33 +1,36 @@
 
-export default function MessageBoard(){
-  return(<h1>this is the MessageBoard</h1>)
-}
-
-
-
-
-// import { useState,useEffect } from "react"
-
-// import { io } from "socket.io-client"
-// const socket = io("https://localhost:3005");
-
-
-
-
-
-
 // export default function MessageBoard(){
+//   return(<h1>this is the MessageBoard</h1>)
+// }
+
+
+
+
+import { useState,useEffect } from "react"
+
+import { io } from "socket.io-client"
+const socket = io("https://localhost:3005");
+
+
+
+
+
+
+export default function MessageBoard(){
 //   const [chatRoom, setChatroom] = useState({
 //     ChatRoom: " "
 //       })
 
 //   const [messages, setMessages] = useState([])
 //   const [text, setText]=useState("")
-//   const [chatId, setChatId]=useState({Room1:" "})
+//   const [chatId, setChatId]=useState({Room:" "})
 //   const [userNameInput, setUserNameInput]=useState({UserName:" "})
 //   const [messageInput,setMessageInput]=useState("")
 
 //     let delay=true;
+
+//     function onload(){
+
 //   useEffect(() => {
 //     socket.io()
 
@@ -43,7 +46,7 @@ export default function MessageBoard(){
 //       setMessages(messages-1);
 //       setMessages(...messages,message)
 //     }
-//     for (i=0;i<messages.length;i++){
+//     for (let i=0;i<messages.length;i++){
 //       setText(...text,[i])
 //     }
 //     // const messageList=message.map(element=>{
@@ -59,6 +62,7 @@ export default function MessageBoard(){
 
 //     })
 //   },[])
+// }
 
 
 //   function Connect(value){
@@ -85,33 +89,33 @@ export default function MessageBoard(){
 
 
   
-//     return (
+    return (
 
 
    
-//       <div className="form-row ">
+      <div >
        
 
-//         <h1 id = "Title"> Chat </h1>
-//       <div >
-//       <label > Username  </label>
-//         <input placeholder="type your username..." className="form-control " type = "text"/>
-//         <label > Chatroom </label>
-//         <input placeholder="select a room..." className = "form-control "  type = "text"/>
+        <h1 id = "Title"> Chat </h1>
+      <div >
+      <label > Username  </label>
+        <input placeholder="type your username..." className="form-control " type = "text"/>
+        <label > Chatroom </label>
+        <input placeholder="select a room..." className = "form-control "  type = "text"/>
         
-//         <input className="btn btn-primary" type = "submit" value = "Connect" onclick = "Connect()"/>
-//       </div>
+        <input className="btn btn-primary" type = "submit" value = "Connect" onclick = "{Connect}"/>
+      </div>
  
-//       <h2 id = "RoomID"> Chatroom : None </h2>
-//       <label id = "MessageLabel"> Message </label>
-//         <input id = "ComposedMessage" type = "text"></input>
-//         <input id = "SendMessage" onclick="Send()" value = "Send" class = "Button" type = "submit"/>
-//       </div>
+      <h2 id = "RoomID" > Chatroom : none </h2>
+      <label id = "MessageLabel"> Message </label>
+        <input id = "ComposedMessage" type = "text"></input>
+        <input id = "SendMessage" onclick="{Send}" value = "Send" class = "Button" type = "submit"/>
+      </div>
   
 
       
-//     );
-//   };
+    );
+  };
 
 
 

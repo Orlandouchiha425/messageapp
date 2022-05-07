@@ -1,7 +1,7 @@
 import { getToken } from "./users-service";
 //this only imports getToken function from Users-service
 
-const BASE_URL= "https://chatter-messaging-center.herokuapp.com/";
+const BASE_URL= "/api/users";
 //previously, if we wanted to deploy to heroku and netlify we needed to go back 
 //and change every url with heroku and nelify link, with this we can just come here and update BASE_URL
 

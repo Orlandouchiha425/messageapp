@@ -5,7 +5,7 @@ import {Routes, Route} from 'react-router-dom'
 import MessageBoard from '../../component/MessageBoard/MessageBoard';
 import { getUser } from '../../utilities/users-service';
 import styles from './App.module.css';
-import Test from '../../component/test/test';
+// import Test from '../../component/test/test';
 
 // import {io} from "socket.io-client"
 // const socket =io('http://localhost:3001')
@@ -27,8 +27,8 @@ function App() {
        {
          user ?
          <>
-         <Route path='/' element={<Test />}/>
-            {/* <Route path='/' element={<MessageBoard  user={ user } setUser={setUser}/>}/>   */}
+         {/* <Route path='/' element={<Test />}/> */}
+            <Route path='/' element={<MessageBoard  user={ user } setUser={setUser}/>}/>  
          </>
          :
          <>

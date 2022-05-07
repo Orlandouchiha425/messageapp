@@ -2,16 +2,18 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const path = require("path");
+const cors=require('cors')
+const logger = require('morgan');
+
 port=3005;
 const app = express();
 const httpserver = http.Server(app);
 const io = socketio(httpserver);
-
+app.use(cors())
 
 
 // app.use(express.static(gamedirectory));
-
-
+app.use(logger('dev'));
 
 var rooms = [];
 var usernames = [];
