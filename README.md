@@ -33,4 +33,4 @@ then you will locate a round button, select what you want to do , sign up or log
 
 
 Challenges:
-reading more documentation and getting Socket io to work, will keep on reading
+reading more documentation and getting Socket io to work, will keep on reading more about socke.io
