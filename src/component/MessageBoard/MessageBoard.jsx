@@ -4,7 +4,10 @@
 // }
 
 
+import { Link } from "react-router-dom";
 
+import UserLogOut from "../UserLogOut/UserLogOut";
+import NavBar from "../NavBar/NavBar";
 
 import { useState,useEffect } from "react"
 
@@ -12,11 +15,9 @@ import { io } from "socket.io-client"
 const socket = io("https://localhost:3005");
 
 
+export default function MessageBoard({user,setUser}){
 
-
-
-
-export default function MessageBoard(){
+ 
 //   const [chatRoom, setChatroom] = useState({
 //     ChatRoom: " "
 //       })
@@ -90,13 +91,18 @@ export default function MessageBoard(){
 
   
     return (
-
+   
+      
 
    
       <div >
-       
-
+        <NavBar />
+        
+   <UserLogOut user={user} setUser={setUser} />
+  
+   
         <h1 id = "Title"> Chat </h1>
+       
       <div >
       <label > Username  </label>
         <input placeholder="type your username..." className="form-control " type = "text"/>
@@ -110,6 +116,7 @@ export default function MessageBoard(){
       <label id = "MessageLabel"> Message </label>
         <input id = "ComposedMessage" type = "text"></input>
         <input id = "SendMessage" onclick="{Send}" value = "Send" class = "Button" type = "submit"/>
+        
       </div>
   
 

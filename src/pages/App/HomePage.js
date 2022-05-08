@@ -6,7 +6,6 @@ import Logo from '../../component/Logo/Logo';
 export default function HomePage(){
 
 
-
     return(
         <main>
 <NavBar />

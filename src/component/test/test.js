@@ -1,5 +1,11 @@
+import UserLogOut from "../UserLogOut/UserLogOut"
+
 export default function Test(){
     return (
-        <h1>this is a test</h1>
+        <div>
+                    <UserLogOut />
+                    <h1>this is a test</h1>
+        </div>
+        
     )
 }
