@@ -1,12 +1,17 @@
 import { useState } from "react";
 import * as userService from '../../utilities/users-service'
 import styles from "./LoginForm.module.css"
+import { useNavigate } from "react-router-dom";
+
+
 export default function LoginForm({setUser}){
     const [credentials,setCredentials]=useState({
         email:'',
         password:'',
     })
     const [error,setError]=useState('')
+    const navigate=useNavigate()
+
 
 
     const handleChange=(evt)=>{
@@ -19,6 +24,7 @@ export default function LoginForm({setUser}){
         try{
             const loggedInUser=await userService.login(credentials)
             setUser(loggedInUser)
+            navigate('/')
         }catch(error){
             setError(error.message)
         }
