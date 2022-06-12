@@ -24,7 +24,7 @@ export default function LoginForm({setUser}){
         try{
             const loggedInUser=await userService.login(credentials)
             setUser(loggedInUser)
-            navigate('/')
+            navigate('/messageboard')
         }catch(error){
             setError(error.message)
         }

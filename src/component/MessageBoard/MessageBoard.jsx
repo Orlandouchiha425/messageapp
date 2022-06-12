@@ -1,13 +1,13 @@
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import UserLogOut from "../UserLogOut/UserLogOut";
 import NavBar from "../NavBar/NavBar";
 
-import { useState,useEffect } from "react"
-
-import { io } from "socket.io-client"
+import io from 'socket.io-client'
+import { useEffect,useState } from 'react';
 const socket = io.connect('http://localhost:3003')
+
 
 
 
@@ -31,17 +31,17 @@ const joinRoom= () => {
 
   const sendMessage = () => {
     
-    socket.emit("send_message", {message,room,userName })
+    socket.emit("send_message", {message,room,user })
   }
 
   useEffect(()  => {
     socket.on("receive_message",(data) => {
 setMessageReceived( data.message )
-setUserName(data.userName)
+// setUserName(data.userName)
+setUser(data.user)
  })
 
   }, [socket])
-  
 
 
   
@@ -50,11 +50,9 @@ setUserName(data.userName)
       <NavBar />
         
    <UserLogOut user={user} setUser={setUser} />
-
-
-      <input className="form-control" placeholder='Name' onChange={(evt) => {
-        setUserName(evt.target.value)
-      }} />
+{/* 
+    <h3 className="form-control"> user={user} setUser={setUser} </h3>  */}
+  
 
 
       <input className="form-control" placeholder='room number...' onChange={(evt) => {
@@ -72,7 +70,7 @@ setUserName(data.userName)
     <button onClick={sendMessage}>Send Message</button>
      <h1>Message:</h1>
    Room number: {room} <br/> 
-    {userName} says: {messageReceived}
+    {user.name} says: {setMessageReceived}
     
    
     </>

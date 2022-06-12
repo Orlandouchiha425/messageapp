@@ -10,7 +10,7 @@ export default function NavBar(){
         <nav className="navbar navbar-dark bg-dark">           
  <Link className="navbar-brand" to="/login" >Sign UP or Login</Link>
  <Link className="navbar-brand" to="/" >Home</Link>
- {/* <Link className="navbar-brand" to="/messageboard">Message Board</Link> */}
+ <Link className="navbar-brand" to="/messageboard">Message Board</Link>
 
  </nav>
             

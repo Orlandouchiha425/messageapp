@@ -1,7 +1,9 @@
 import styles from "./SignUpForm.module.css"
 import { useState } from "react"
 import { signUp } from "../../utilities/users-service"
-export default function SignUpForm({setUser}){
+import { useNavigate } from "react-router-dom";
+
+export default function SignUpForm({user, setUser}){
     const [state, setState]=useState({
         name:'',
         email:'',
@@ -12,6 +14,7 @@ export default function SignUpForm({setUser}){
 //name email et...state is how it starts/ or name empty. setState is how we want to change it dynamically
 
     })
+    const navigate=useNavigate()
 
 const handleChange = (evt) => {
      setState({...state, [evt.target.name]: evt.target.value, error: '' })
@@ -34,6 +37,7 @@ const handleChange = (evt) => {
 
        const newUser=await signUp(formData)
        setUser(newUser)
+       navigate('/messageboard')
         // const user=await SignUp(formData)
     }
       catch(err){

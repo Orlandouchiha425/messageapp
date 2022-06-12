@@ -31,7 +31,7 @@ function App() {
          <>
   
             {/* <Route path='/*' element={<MessageBoard  user={ user } setUser={setUser}/>}/>   */}
-            <Route path='/' element={<MessageBoard  user={ user } setUser={setUser}/>}/>  
+            <Route path='/messageboard' element={<MessageBoard  user={ user } setUser={setUser}/>}/>  
 
 
             {/* <Route path='/test' element={<Test />}/> */}
@@ -41,7 +41,7 @@ function App() {
           
           <Route path='/' element={<HomePage />}/>
           <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
-          {/* <Route path="/"  element={<UserLogOut />}/> */}
+          <Route path="/*"  element={<HomePage user={ user } setUser={setUser}/>}/>
          </>
 
        }
