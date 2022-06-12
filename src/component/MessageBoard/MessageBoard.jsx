@@ -50,14 +50,14 @@ setUserName(data.userName)
       <NavBar />
         
    <UserLogOut user={user} setUser={setUser} />
-      <div className="App">
 
-      <input placeholder='Name' onChange={(evt) => {
+
+      <input className="form-control" placeholder='Name' onChange={(evt) => {
         setUserName(evt.target.value)
       }} />
 
 
-      <input placeholder='room number...' onChange={(evt) => {
+      <input className="form-control" placeholder='room number...' onChange={(evt) => {
         setRoom(evt.target.value)
       }} />
 
@@ -74,7 +74,7 @@ setUserName(data.userName)
    Room number: {room} <br/> 
     {userName} says: {messageReceived}
     
-    </div>
+   
     </>
   );
 
