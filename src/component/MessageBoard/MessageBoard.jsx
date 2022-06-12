@@ -1,9 +1,4 @@
 
-// export default function MessageBoard(){
-//   return(<h1>this is the MessageBoard</h1>)
-// }
-
-
 import { Link } from "react-router-dom";
 
 import UserLogOut from "../UserLogOut/UserLogOut";
@@ -12,116 +7,105 @@ import NavBar from "../NavBar/NavBar";
 import { useState,useEffect } from "react"
 
 import { io } from "socket.io-client"
-const socket = io("https://localhost:3005");
+const socket = io.connect('http://localhost:3003')
+
 
 
 export default function MessageBoard({user,setUser}){
-
- 
-//   const [chatRoom, setChatroom] = useState({
-//     ChatRoom: " "
-//       })
-
-//   const [messages, setMessages] = useState([])
-//   const [text, setText]=useState("")
-//   const [chatId, setChatId]=useState({Room:" "})
-//   const [userNameInput, setUserNameInput]=useState({UserName:" "})
-//   const [messageInput,setMessageInput]=useState("")
-
-//     let delay=true;
-
-//     function onload(){
-
-//   useEffect(() => {
-//     socket.io()
-
-//     socket.on("join",function(room){
-//     setChatroom({...chatRoom,["ChatRoom"]:room})
+  const [userName, setUserName]=useState('')
+  const [room, setRoom] = useState('')
+const [message, setMessage] = useState({
+  content:''
+})
+const [messageReceived, setMessageReceived] = useState("")
 
 
-//     socket.on("receive",function(message){
-//       console.log(message);
-//     if(messages.length<9){
-//       setMessages(...message,message)
-//     }else{
-//       setMessages(messages-1);
-//       setMessages(...messages,message)
-//     }
-//     for (let i=0;i<messages.length;i++){
-//       setText(...text,[i])
-//     }
-//     // const messageList=message.map(element=>{
-//     //   <div>
-//     //     <h1>{element.setMessages}</h1>
-//     //   </div>
-//     // })
+const joinRoom= () => {
+  if ( room !== ""){
+    socket.emit("join_room", room);
+  }
+}
 
 
 
 
-//     })
+  const sendMessage = () => {
+    
+    socket.emit("send_message", {message,room,userName })
+  }
 
-//     })
-//   },[])
-// }
+  useEffect(()  => {
+    socket.on("receive_message",(data) => {
+setMessageReceived( data.message )
+setUserName(data.userName)
+ })
 
-
-//   function Connect(value){
-//     socket.emit("join", setChatId({...chatId,["chatId"]:value}), setUserNameInput({...userNameInput,["UserName"]:value})
-//     )
-//   }
-
-
-
-// function Send(){
-//   if (delay && setMessageInput(...messageInput,messageInput.value.replace(/\s/g,"") !=="")){
-//     delay = false;
-//     setTimeout(delayReset, 1000);
-//     socket.emit("send", messageInput.value);
-//     messageInput.value = "";
-//   }
-// }
-
-// function delayReset(){
-//   delay = true;
-// }
+  }, [socket])
   
-
 
 
   
     return (
-   
-      
-
-   
-      <div >
-        <NavBar />
+      <>
+      <NavBar />
         
    <UserLogOut user={user} setUser={setUser} />
+      <div className="App">
+
+      <input placeholder='Name' onChange={(evt) => {
+        setUserName(evt.target.value)
+      }} />
+
+
+      <input placeholder='room number...' onChange={(evt) => {
+        setRoom(evt.target.value)
+      }} />
+
+
+
+      <button onClick={joinRoom}>Join Room</button>
+
+    <input placeholder='message...' onChange={ (evt) => {
+      setMessage(evt.target.value)
+
+    }} />
+    <button onClick={sendMessage}>Send Message</button>
+     <h1>Message:</h1>
+   Room number: {room} <br/> 
+    {userName} says: {messageReceived}
+    
+    </div>
+    </>
+  );
+
+   
+  //     <div >
+  //       <NavBar />
+        
+  //  <UserLogOut user={user} setUser={setUser} />
   
    
-        <h1 id = "Title"> Chat </h1>
+  //       <h1 id = "Title"> Chat </h1>
        
-      <div >
-      <label > Username  </label>
-        <input placeholder="type your username..." className="form-control " type = "text"/>
-        <label > Chatroom </label>
-        <input placeholder="select a room..." className = "form-control "  type = "text"/>
+  //     <div >
+  //     <label > Username  </label>
+  //       <input placeholder="type your username..." className="form-control " type = "text"/>
+  //       <label > Chatroom </label>
+  //       <input placeholder="select a room..." className = "form-control "  type = "text"/>
         
-        <input className="btn btn-primary" type = "submit" value = "Connect" onclick = "{Connect}"/>
-      </div>
+  //       <input className="btn btn-primary" type = "submit" value = "Connect" onclick = "{Connect}"/>
+  //     </div>
  
-      <h2 id = "RoomID" > Chatroom : none </h2>
-      <label id = "MessageLabel"> Message </label>
-        <input id = "ComposedMessage" type = "text"></input>
-        <input id = "SendMessage" onclick="{Send}" value = "Send" class = "Button" type = "submit"/>
+  //     <h2 id = "RoomID" > Chatroom : none </h2>
+  //     <label id = "MessageLabel"> Message </label>
+  //       <input id = "ComposedMessage" type = "text"></input>
+  //       <input id = "SendMessage" onclick="{Send}" value = "Send" class = "Button" type = "submit"/>
         
-      </div>
+  //     </div>
   
 
       
-    );
+    // );
   };
 
 
